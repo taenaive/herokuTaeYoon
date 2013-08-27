@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+    	<link rel='stylesheet' href='/stylesheets/style.css' />
+    	<link rel='stylesheet' href='/stylesheets/top_menu.css' />
+   		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+   		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    	<script src="/javascripts/easeljs/utils/UID.js"></script>
+      	<script src="/javascripts/easeljs/geom/Matrix2D.js"></script>
+      	<script src="/javascripts/easeljs/events/EventDispatcher.js"></script>
+      	<script src="/javascripts/easeljs/events/MouseEvent.js"></script>
+    	<script src="/javascripts/easeljs/display/DisplayObject.js"></script>
+      	<script src="/javascripts/easeljs/display/Bitmap.js"></script>
+      	<script src="/javascripts/easeljs/display/Container.js"></script>
+      	<script src="/javascripts/easeljs/display/Graphics.js"></script>
+      	<script src="/javascripts/easeljs/display/Shadow.js"></script>
+	   	<script src="/javascripts/easeljs/display/Shape.js"></script>
+	   	<script src="/javascripts/easeljs/display/Stage.js"></script>
+	   	<script src="/javascripts/easeljs/display/Text.js"></script>
+
+    	<script>
+    		var $j = jQuery.noConflict();
+    		$j("document").ready(function(){
+    			$j("#accordion").accordion();
+
+    			var canvas = $j("#composition")[0];
+    			// var ctx = canvas.getContext("2d");
+    			var stage = new createjs.Stage(canvas);
+
+    			selectHandler = function (clickedRow) {
+    				var cell = clickedRow.getElementsByTagName("td")[0];
+    				// var image = cell.getElementsByTagName("img")[0];
+    				// ctx.drawImage(image, 200, 250, 50, 50);
+    				var image = new createjs.Bitmap(cell.getElementsByTagName("img")[0]);
+    				image.x = 200;
+    				image.y = 250;
+    				image.scaleX = 2;
+    				image.scaleY = 2;
+
+    				image.addEventListener("mousedown", dragHandler);
+
+    				stage.addChild(image);
+    				stage.update();
+    			};
+
+    			dragHandler = function(evt) {
+					var offset = {x:evt.target.x-evt.stageX, y:evt.target.y-evt.stageY};
+                 
+					// add a handler to the event object's onMouseMove callback
+					// this will be active until the user releases the mouse button:
+					evt.addEventListener("mousemove",function(ev) {
+					    ev.target.x = ev.stageX+offset.x;
+						ev.target.y = ev.stageY+offset.y;
+						stage.update();   
+					});
+    			};
+
+
+    			// var containers = $j("#displayContainers");
+    			// rows = containers.children("tr");
+   				// for (i = 0; i < rows.length; i++) {
+   		 	// 		var row = rows[i];
+    			
+    			// 	var createClickHandler = function (clickedRow) {
+    			// 		return function() {
+    			// 			alert("A click happened!");
+    			// 			var cell = clickedRow.children("td")[0];
+    			// 			var image = cell.children("img")[0];
+    			// 			ctx.drawImage(image, 200, 250, 50, 50);
+    			// 			// var image = new createjs.Bitmap(cell.children("img")[0]);
+    			// 			// image.x = 200;
+    			// 			// image.y = 250;
+    			// 			// image.width = 50;
+    			// 			// image.height = 50;
+    			// 			// stage.addChild(image);
+    			// 			// stage.update();
+    			// 		};
+    			// 	};
+    			// 	row.onClick(createClickHandler(row));
+    			// };
+    		});
+    	</script>    
+	</head>
+
+
+	<body style ="padding: 6px;"  >
+     <div id ="menuDiv" style="position: relative; visibility: visible;">
+	    <ul id="menu">
+			<li><a href="/test2">Home</a></li>
+			<li>
+				<a href="#">Categories</a>
+				<ul>
+					<li><a href="/test3">Mission</a></li>
+					<li><a href="#">Commander view</a></li>
+					<li><a href="#">Client view</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Work</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Log IN</a>
+				<ul>
+					<li>
+						<div id ="loginWidget" style="position: relative; visibility: visible;">
+				        <p><strong>Enter your credentials </strong> </p>
+				    	<form id="loginform">
+				    	 <table>
+				    	 <tr>
+					    	 <td><label>First name:</label></td> 
+					    	 <td><input type="text" id ="loginFName" name="FirstName" value="Awesome"></td>
+				    	 </tr>
+				    	 <tr>
+							 <td><label>Last name:</label></td> 
+							 <td><input type="text" id="loginLName" name="LastName" value="commander"></td>
+						 </tr>
+						 <tr>
+							 <td><label>Password:</label></td>
+							 <td><input type="password" id="LoginPass" value =""></td>
+						 </tr>
+						 <tr>
+						 	<td></td><td><button type="button" id="loginSubmitButton"> Log In </button></td>
+						 </tr>
+				    	</table>
+				    	</form>
+				    	</div>
+				    </li>				    
+				</ul>
+			</li>
+		</ul>
+    </div>
+    <style>
+	    #maccContainer {
+	    display: table;
+	    height: 500px;
+    	margin: 0 auto;
+	    position: relative;
+	    border:1px solid #050505;
+		}
+		.tableElement {	    
+    	margin: 0 auto;
+	    position: relative;
+	    border:1px solid #000000;
+		}		
+	</style>
+	<div id = "maccContainer" style="float:left">
+    	<div style="display: table-row">
+    		<div class ="maccItem">
+    			<div id="accordion">
+    				<h3>Description</h3>
+    				<div>
+    					<img border="0" src="/images/AFlogo.jpg" alt="AFlogo" width="304" height="228"/>
+    					Description panel goes here
+    				</div>
+    				<h3>Property Editor</h3>
+    				<div>Property panel goes here</div>
+    				<h3>Display Containers</h3>
+    				<div>
+    					<table id="displayContainers">
+    						<tr onClick="selectHandler(this);">
+    							<td><img border="0" src="images/table-32x32.png" width="20" height="20"/>Table</td>
+    						</tr>
+    						<tr onClick="selectHandler(this);">
+    							<td><img border="0" src="images/XYChart32X32.png" with="20" height="20"/>Chart</td>
+    						</tr>
+    					</table>
+    				</div>
+    				<h3>Renderers</h3>
+    				<div>Grid of renderer widgets goes here</div>
+    				<h3>Data Sources</h3>
+    				<div>List of CSVs goes here</div>
+    			</div>
+			</div>
+		</div>
+	</div>
+	<div style="float:left">
+		<canvas id="composition" style="border:2px solid #000000;" width="400" height="500"/>
+	</div>
+</html

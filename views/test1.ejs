@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/javascripts/three.min.js"></script>
+    <script>
+    //three.js demo
+    var camera, scene, renderer;
+    var geometry, material, mesh;
+
+    function init() {
+
+        camera = new THREE.PerspectiveCamera( 45, (window.innerWidth/4) / (window.innerHeight/4), 1, 10000 );
+        camera.position.z = 500;
+
+        scene = new THREE.Scene();
+
+        geometry = new THREE.IcosahedronGeometry( 200, 2);
+        material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
+
+        mesh = new THREE.Mesh( geometry, material );
+        scene.add( mesh );
+
+        if (window.WebGLRenderingContext)
+			renderer = new THREE.WebGLRenderer();
+		else
+			renderer = new THREE.CanvasRenderer();
+        
+        renderer.setSize( window.innerWidth/4, window.innerHeight/4 );
+        renderer.setClearColor(0x050505, 1);
+
+        document.getElementById('mainCanvas').appendChild( renderer.domElement );
+        //$('#warn').append(renderer.domElement);
+    }
+
+    function animate() {
+
+        // note: three.js includes requestAnimationFrame shim
+        requestAnimationFrame( animate );
+
+        mesh.rotation.x += 0.01;
+        mesh.rotation.y += 0.02;
+
+        renderer.render( scene, camera );
+
+    }
+
+    //three.js demo ends
+
+   		// check browser type and warn if it is not supported.
+    	navigator.sayswho= (function(){
+			    var N= navigator.appName, ua= navigator.userAgent, tem;
+			    var M= ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
+			    if(M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];
+			    M= M? [M[1], M[2]]: [N, navigator.appVersion, '-?'];
+
+			    return M;
+			})();
+			
+		window.onload = function(e){			
+				if (navigator.sayswho[1] !== undefined){
+					if ( navigator.userAgent.match(/(chrome|safari|firefox)\/?\s*(\.?\d+(\.\d+)*)/i) == null ){
+						window.confirm("Your Browser is not supported. Use Chrome, safari or firefox instead!");
+					}
+					document.getElementById("warn").innerHTML="<p>Your Browser: "+navigator.sayswho[0]+"</p>"
+													+"<p>version: "+navigator.sayswho[1]+"</p>";
+				}
+		};
+		//Ajax document init
+		$("document").ready(function(){
+
+			$('#cypherButton').bind('click', getInfoFromServer);
+
+			init();
+    		animate();
+
+		});
+
+		function getInfoFromServer(){
+			
+			$.ajax({
+				type: "POST",
+				url: "/cypher1",
+				data: {	'cypherText':$('#cypherText').val() ,
+						'first':$('#firstName').val(),
+						 'last':$('#lastName').val() 
+						},			
+				success: postToPage});
+		}
+
+		function postToPage(data, status){
+			$('#cResult').text(data)
+		}
+
+    </script>
+    <style>
+	   .flex
+	   {
+	      /* basic styling */
+	      width: 600px;
+	      height: 200px;
+	      border: 1px solid #555;
+	      font: 14px Arial;
+
+	      /* flexbox setup */
+	      display: -webkit-flex;
+	      -webkit-flex-direction: row;
+
+	      display: flex;
+	      flex-direction: row;
+	   }
+
+	   .flex > div
+	   {
+	      -webkit-flex: 1 1 auto;
+	      flex: 1 1 auto;
+
+	      width: 30px; /* To make the transition work nicely.  (Transitions to/from
+	                      "width:auto" are buggy in Gecko and Webkit, at least.
+	                      See http://bugzil.la/731886 for more info.) */
+
+	      -webkit-transition: width 0.7s ease-out;
+	      transition: width 0.7s ease-out;
+	   }
+
+	   /* colors */
+	   .flex > div:nth-child(1){ background : #3399FF; }
+	   .flex > div:nth-child(2){ background : #6699CC; }
+	   .flex > div:nth-child(3){ background : #003399; }
+
+	   .flex > div:hover
+	   {
+	        width: 200px;
+	   }	   
+   </style>
+  </head>
+  <body>
+ 
+    <div id ="warn"></div>
+    
+    <h1><%= title %></h1>
+    <p>Welcome to Future <%= title %> Site</p>
+    <p><strong> Icosahedron 3D demo with three.js </strong></p>
+    <div id = "mainCanvas"></div>
+    <div id ="testButton">
+        <p><strong> Node creation Demo with Neo4j NoSQL DB </strong> <p>
+    	<form id="theform">
+    	 First name: <input type="text" id ="firstName" name="FirstName" value="Awesome"><br>
+		 Last name: <input type="text" id="lastName" name="LastName" value="commander"><br>
+		 Cypher Text: <input type="text" id="cypherText" value ="CREATE"><br>
+    	<button type="button" id="cypherButton"> Do Cypher Query </button>
+    	</form>
+    </div>
+    <div>
+    	<h4><strong> Message from the Server:</strong></h4>
+    	<p id="cResult">Waiting for the result...</p>
+    </div>
+    <p>Flex box Test</p>
+  	<div class="flex">
+	    <div>uno</div>
+	    <div>dos</div>
+	    <div>tres</div>
+  	</div>
+  </body>
+</html>

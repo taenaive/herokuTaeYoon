@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/form_container.css' />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ </head>
+<body>
+	<div class ="container-top center-text">
+	<h1 class="form-container-min"> <%= title %> </h1>
+	</div>
+	<div class ="container-small center-text">
+
+		<form class="form-container3" action="/insert" method="POST">
+		<div class="form-title"><h2>Choose your Id/Pass</h2></div>
+		<div class="form-title">ID</div>
+		<input class="form-field" type="text" name="user" /><br />
+		<div class="form-title">Password</div>
+		<input class="form-field" type="password" name="password" /><br />
+		<div class="submit-container">
+		<input class="submit-button" type="submit" value="Sign up" />
+		</div>
+		</form>
+
+		<div class="well-small">Done creating an account? 
+		<a href="/test2" target="_self" class="redirect">log in</a>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="container-medium">
+			<div class="row">
+			<ul>
+				<li><a href="http://www.caci.com">Home</a></li>
+				<li>•</li><li> <a href="http://help.caci.com">Support </a></li>
+				<li>•</li><li> <a href="http://www.caci.com/privacy" target="_blank">Privacy</a></li>
+				<li>•</li><li><a href="http://www.caci.com/terms" target="_blank">Terms</a></li>
+				<li>•</li><li> <a href="mailto:tyoon@caci.com">Contact</a></li>
+			</ul>
+			</div>
+			<div class="row">CACI, Inc. All Rights Reserved.</div>
+		</div>
+	</div>
+
+</body>
+</html>

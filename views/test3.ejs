@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/top_menu.css' />
+    <link rel='stylesheet' href='/stylesheets/plumb_objects.css' />
+    <link rel="stylesheet" href="/stylesheets/jquery-ui-themes-1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="/javascripts/jquery-1.9.0-min.js"></script>
+    <script src="/javascripts/jquery-ui-1.9.2-min.js"></script>
+    <script src="/javascripts/jquery.ui.touch-punch.min.js "></script> 
+      
+    <script src="/javascripts/jquery.jsPlumb-1.4.1-all-min.js"></script>
+    <script src="/javascripts/test3include.js"></script>
+  
+    <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script><![endif]-->
+    <!--<script src="/javascripts/masonry.pkgd.min.js"></script>-->
+	<!--<script src="http://code.createjs.com/tweenjs-0.2.0.min.js"></script>-->    
+  </head>
+  <body style ="padding: 6px;"  >
+     <div id ="menuDiv" style="position: relative; visibility: visible;">
+	    <ul id="menu">
+			<li><a href="#">Home</a></li>
+			<li>
+				<a href="#">Categories</a>
+				<ul>
+					<li><a href="/test3">Refresh</a></li>
+					<li><a href="/test4">Go to Commander view</a></li>					
+				</ul>
+			</li>			
+			<li><a href="/logout">Log Out</a>				
+			</li>
+		</ul>
+    </div>
+    
+    <style>
+	    #mainTitle {
+	    display: block;
+    	margin: 0 auto;
+	    position: relative;
+	    /*padding-left: 5px;*/
+	    /* width: 30%;*/	    
+	    /*pointer-events: none; */  
+		}	
+	</style>
+	
+    <div id = "mainTitle">
+    <div style="display: linine-block; float:left">
+	<button class="maccButton" type="button" onclick="alert('mocking set!')">Settings</button>	
+	</div>
+    <h2 style="text-align:right; padding-right:45%;"><%= title %></h2>   
+    
+    </div>    
+	
+    <div class = "maccContainer">
+    <div style="display: table">
+    <div style="display: table-row">
+	    <div class ="maccItem" >
+	   	 <h2>UDOP like Demo</h2>
+	   	 	<ul>
+	   	 	<li>
+	   	 		<div id="containerData" class="jdrag_div drag_div_data" style= "left:20px;top:100px;" >
+	    		<p>Data Source</p>
+	    		<p class="removable-p">
+	             <label >In:</label>
+	             <select id = "myList">
+	               <option value = "1">mission1</option>
+	               <option value = "2">mission2</option>
+	               <option value = "3">mission3</option>	               
+	             </select>
+          		</p>
+          		<div class="maccImage-1"> </div>
+	    		<!-- <img class="normal" src="/images/Big-Data.jpg" width="110" height="84" />	    		 -->
+		    </div>
+	   	 	</li>
+	   	 	<li id ="cFuncLi">
+	   	 	<div id="containerFunc" class="jdrag_div drag_div" >
+		       <p>Function</p>
+		       <div class="maccImage-2"> </div>
+		       <!-- <img class="normal" src="/images/Function.png" width="100" height="84"
+		       draggable="false"  /> -->			       
+		    </div>
+		    </li>
+		    <li>
+		    <div id="containerDisplay" class="jdrag_div drag_div" >
+		       <p>End Display</p>
+		       <div class="maccImage-3"> </div>
+		      <!--  <img class="normal" src="/images/display.jpg" width="100" height="84" 
+		       draggable="false" />	 -->	       
+			</div>
+			</li>
+			</ul>
+	    </div>
+
+	   <!-- <div class ="maccItem"><h1>world</h1></div> -->   
+	   
+	    <div id="map-canvas" 
+	    style ="position:absolute; display: table-cell; width: 800px; height: 500px;
+	    ">
+	   <!--  ondrop="return dragDrop(event)"
+	    	ondragenter="return dragEnter(event)"
+	    	ondragover="return dragOver(event)"  -->
+	    <div id="map-canvas-content"	        
+	     	style =" width: 100%; height: 100%;">
+	   
+	    	<div id="container0" class="basic_div" style= "left:20px;top:100px;" >
+	    		<p>Data Source</p>
+	    		<p>
+	             <label>mission1</label>	            
+          		</p>
+	    		<div class="maccImage-1" ></div>
+	    		<div><button title="delete" type='button' onclick="deleteObj('container0')">x</button></div>
+		    </div>
+		    <div id="container1" class="filter_div" style= "left:300px;top:200px;">
+		       <p>Filter Function</p>
+		       <img class="normal" src="/images/filter_data.png" width="100" height="100" />
+		       <div><button title="delete" type='button' onclick="deleteObj('container1')">x</button></div>
+		     </div>  
+		     <div id="container2" class="end_div" style= "left:500px;top:100px;">
+		       <p>End Display</p>
+		       <div class="maccImage-3"> </div>
+		       <div><button title="delete" type='button' onclick="deleteObj('container2')">x</button></div>
+    		</div>
+    		
+	    </div>
+	    </div>
+     	
+    </div>
+    </div>
+    
+	    <div id ="bottomDiv" style="display: block; margin: 10px auto;">
+	    <div id="tabs" style="display: block; ">
+				  <ul>
+				    <li><a href="#tabs-1">How to use</a></li>
+				    <li><a href="#tabs-2">End Display</a></li>
+				    <li><a href="#tabs-3">Source Data</a></li>				    				   
+				  </ul>
+				  <div id="tabs-1">
+				    <ul>
+				    <li>Drag and drop the function and display items to the right panel</li>	
+					<li>Drag the end points (Gray Squre and Dot)</li>
+					<li>Drag Objects itself around</li>	
+					<li>Try Multiple connections dragging the source anchor(Dot).</li>					
+				</ul>
+				  </div>
+				  <div id="tabs-2">
+				      <div class ="maccItem w2"><canvas id="world3" class="world3" >main Canvas</canvas></div>
+				  </div>
+				  <div id="tabs-3">				      
+				      <iframe src="/mobile" style="width:800px ; height:200px">
+					  	<p>Your browser does not support iframes.</p>
+					  </iframe>
+				  </div>				 
+		</div>
+	    </div>
+	    
+    <div id ="warn" style="display: table-row;"></div> 
+    </div>     
+  </body>
+</html>
