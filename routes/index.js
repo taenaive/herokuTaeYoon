@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'MACC 2' });
+  res.render('index', { title: "Tae Yoon's Home" });
 };

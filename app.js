@@ -4,22 +4,19 @@
  */
 
 var express = require('express')
-  , routes = require('./routes/test2')
+  , routes = require('./routes/index.js')
   , restApi= require('./routes/restapi')
   , user = require('./routes/user')
   , test1 = require('./routes/test1')
   , test2 = require('./routes/test2')  
   , test3 = require('./routes/test3')
   , mobileTest3 = require('./routes/mobileTest3')
-  , test4 = require('./routes/test4')
-  , testMatt = require('./routes/testMatt')
-  , cypher1 = require('./routes/cypher1')
+  , test4 = require('./routes/test4')  
   , cypher4 = require('./routes/cypher4')
   , login = require('./routes/login')
   , logout = require('./routes/logout')
   , signup = require('./routes/signup')
-  , insert = require('./routes/insert')
-  , anotherTest = require('./routes/anotherTest')
+  , insert = require('./routes/insert')  
   , http = require('http')  
   , path = require('path');
 
@@ -29,7 +26,7 @@ var app = express();
 app.set('port', process.env.PORT || 5850);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.use(express.favicon(path.join(__dirname, 'public/images/airforce.ico')));
+app.use(express.favicon(path.join(__dirname, 'public/images/taeyoon.ico')));
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -71,9 +68,6 @@ app.get('/signup', signup.index);
 app.get('/test3', checkAuth, test3.index);
 app.get('/mobile', mobileTest3.index);
 app.get('/test4', checkAuth, test4.index);
-app.get('/matt', testMatt.index);
-app.get('/anotherTest', anotherTest.index);
-app.post('/cypher1', cypher1.index);
 app.post('/cypher4', cypher4.index);
 app.post('/login', login.index);
 app.post('/insert', insert.index);
