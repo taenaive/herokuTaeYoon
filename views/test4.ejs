@@ -1,156 +1,180 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/stylesheets/top_menu.css' />
-    <link rel="stylesheet" href="/stylesheets/jquery-ui-themes-1.10.3/themes/smoothness/jquery-ui.css" />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge"/> 
+    
+    <title>Carousel Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="/bootstrap/css/carousel.css" rel="stylesheet">
+  <style id="holderjs-style" type="text/css">.holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;margin:0}</style>
+</head>
+<!-- NAVBAR
+================================================== -->
+  <body style="">
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Tae Yoon</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="/images/romeNYwoodsvalley.jpg"  alt="First slide" 
+                          style="height: 500px; width: 900px;display: block;">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Tae the polyglot developer.</h1>
+              <p>Polyglot programming -- development in multiple languages.</p>
+              <p><a class="btn btn-large btn-primary" href="#">what languages does he code?</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="/images/taeyoonWithJulia.jpg" alt="Second slide" style="height: 500px; width: 700px; display: block;">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Family man</h1>
+              <p>Awesome Dad.</p>
+              <p><a class="btn btn-large btn-primary" href="#">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="/images/taeyoonAvatar.jpg" alt="Third slide" style="height: 500px; width: 700px; display: block;">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Need for speed.</h1>
+              <p>Car Enthusiast!</p>
+              <p><a class="btn btn-large btn-primary" href="#">Browse gallery</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div><!-- /.carousel -->
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" src="" data-src="holder.js/140x140/text:ECMA script" alt="140x140" style="width: 140px; height: 140px;">
+          <h2>Java script</h2>
+          <p>Tae ueses Node.js,Jquery,Angular and more to build client and server applications.currently Tae is developing user configurable data binding and visualizaiton applications for Airfoce</p>
+          <p><a class="btn btn-default" href="#">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="" data-src="holder.js/140x140/text:Java" alt="140x140" style="width: 140px; height: 140px;">
+          <h2>JAVA</h2>
+          <p>3 years of Deveopment of 3D and 2D redering engines with Java. Later I have built some UI app using JavaFX frame work.</p>
+          <p><a class="btn btn-default" href="#">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="" data-src="holder.js/140x140/text:C,C++" alt="140x140" style="width: 140px; height: 140px;">
+          <h2>C/C++</h2>
+          <p>More than 5 years of the experience as a virtual reality project leader using Uneral 3 Game engine and Gamebryo. Also, Tae was involved in HPCC (High-Performance Computing Cluster) development for 3 years. </p>
+          <p><a class="btn btn-default" href="#">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Other languages: <span class="text-muted">very capable of...</span></h2>
+          <p class="lead">HTML5,svg, SQL, NoSql( cyhper query from Neo4j ), python, ruby, scala, assembler, Objective C...etc</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="/images/mostpopularcodinglanguages.jpg"  alt="500x500">          
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>© 2013 TaeYoon, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
     <script src="/javascripts/jquery-1.9.0-min.js"></script>
-    <script src="/javascripts/jquery-ui-1.9.2-min.js"></script>
-    <script src="/javascripts/jquery.ui.touch-punch.min.js "></script>     
-    <script src="/javascripts/easeljs-0.6.1.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script src="/javascripts/d3.v3.min.js" charset="utf-8"></script>
-    <script src="/javascripts/test4include.js"></script>
-    <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <!--[if lt IE 9]><script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script><![endif]-->
-    <!--<script src="/javascripts/masonry.pkgd.min.js"></script>-->
-	<!--<script src="http://code.createjs.com/tweenjs-0.2.0.min.js"></script>-->    
-  </head>
-  <body style ="padding: 6px;"  >
-     <div id ="menuDiv" style="position: relative; visibility: visible;">
-	    <ul id="menu">
-			<li><a href="/test2">Home</a></li>
-			<li>
-				<a href="#">Categories</a>
-				<ul>
-					<li><a href="/test3">Mission</a></li>
-					<li><a href="/test3">Commander view</a></li>
-					<li><a href="/test4">Client view</a></li>
-				</ul>
-			</li>
-			<li><a href="#">Work</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="/logout">Log Out</a>				
-			</li>
-		</ul>
-    </div>
-    
-    <style>
-	    #mainTitle {
-	    display: table;
-    	margin: 0 auto;
-	    position: relative;
-	    /*padding-left: 5px;*/
-	    /* width: 30%;*/	    
-	    pointer-events: none;   
-		}	
-	</style>
-    <div id = "mainTitle">
-    <h2><%= title %></h2>   
-    
-    <div id = "mainCanvas" ></div>
-    </div>
-    <style>
-	    #maccContainer {
-	    display: table;
-	    height: 500px;
-    	margin: 0 auto;
-	    position: relative;
-	    border:1px solid #050505;
-		}
-		.tableElement {	    
-    	margin: 0 auto;
-	    position: relative;
-	    border:1px solid #000000;
-		}		
-	</style>
-	<div style="display: table-row">
-	<button class="maccButton" type="button" onclick="alert('mocking set!')">Settings</button>
-	<button class="maccButton" type="button" onclick="alert('mock')">Criteria</button>
-	</div>
-    <div id = "maccContainer">
-    
-    <div style="display: table-row">
-    <div class ="maccItem">
-   
-		 <div id="accordion">
-		  <h3 id="mission1">Mission 1</h3>
-		  <div>
-		    <h1>
-		    Mission1 :
-		    </h1>
-		    <img border="0" src="/images/AFlogo.jpg" alt="AFlogo" width="304" height="228">
-		  </div>
-		  <h3 id="mission2">Mission 2</h3>
-		  <div>
-		    <h1>
-		    Mission2 :
-		    </h1>
-		    <button id="loadMission" class="maccButton" type="button" >
-		    Load Mission From Server</button>
-		  </div>
-		  <h3>Mission 3</h3>
-		  <div>
-		    <p>
-		    Mission3: Any content can be added here. below is list demo.
-		    </p>
-		    <ul>
-		      <li>List item one</li>
-		      <li>List item two</li>
-		      <li>List item three</li>
-		    </ul>
-		  </div>
-		  <h3>Mission 4</h3>
-		  <div>
-		    <p>
-		    Mission4:
-		    This is jQuery Accordian.
-		    </p>
-		  </div>
-		</div>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/javascripts/holder.js"></script>
+  
 
-    </div>
-   <!-- <div class ="maccItem"><h1>world</h1></div> -->   
-   
-    <div id="map-canvas" style ="display: table-cell; width: 600px; height: 500px;">
-    <div id="map-canvas-content" style =" width: 100%; height: 100%;"></div>
-    </div>
-    <div id="d3-canvas" style ="display: table-cell; width: 600px; height: 500px;"></div>
-    <!--<div class ="maccItem w2"><h1>three</h1></div>  -->      
-    </div>
-    
-    
-    	
-    </div>
-    <div id ="bottomDiv" style="display: table; vertical-align: top;">
-    <div id="tabs" style="display: table-row; ">
-			  <ul>
-			    <li><a href="#tabs-1">Plain document</a></li>
-			    <li><a href="#tabs-2">HTML5 testing</a></li>
-			    <li><a href="#tabs-3">svg shapes</a></li>
-			  </ul>
-			  <div id="tabs-1">
-			    <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
-			  </div>
-			  <div id="tabs-2">
-			      <div class ="maccItem w2"><canvas id="world3" class="world3" >main Canvas</canvas></div>
-			  </div>
-			  <div id="tabs-3">
-			    <img src='/images/tiger.svg' type='image/svg+xml' width="1600" height="400" />
-			  </div>
-	</div>
-    </div>
-
-    <div id ="warn" style="display: table-row;"></div> 
-    <!-- <div id ="testButton" style="position: absolute; -webkit-transform-origin: 0% 0%; visibility: visible; opacity: 1; -webkit-transform: matrix(1, 0, 0, 1, 552.5, -274);">
-    
-    </div>
-  <div style='position:absolute;z-index:-2;left:0;top:0;width:100%;height:100%'>
-  <img src='/images/air_force.jpg' style='width:100%;height:100%' alt='[]' />
-  </div>  
-  <svg width="400" height="300" >
-  <rect x="100" y="100" height="100" width="200" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)"></rect>
-	</svg>  -->
-  </body>
-</html>
+</body></html>

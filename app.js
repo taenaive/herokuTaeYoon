@@ -67,7 +67,7 @@ app.get('/test2', test2.index);
 app.get('/signup', signup.index);
 app.get('/test3', checkAuth, test3.index);
 app.get('/mobile', mobileTest3.index);
-app.get('/test4', checkAuth, test4.index);
+app.get('/test4', test4.index);
 app.post('/cypher4', cypher4.index);
 app.post('/login', login.index);
 app.post('/insert', insert.index);
