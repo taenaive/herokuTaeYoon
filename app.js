@@ -54,6 +54,7 @@ app.all('*', function(req, res, next) {
   //heroku
   if( (process.env.PORT !== undefined) && (req.headers['x-forwarded-proto']!='https') ){
     res.redirect('https://'+req.host+req.url);
+    return;
   }
   else{
     res.header("Access-Control-Allow-Origin", "*");
