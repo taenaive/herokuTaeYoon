@@ -1,4 +1,4 @@
-# MACC 2
+# Tae Yoon's info front page
 
 ## This is Node.js deployable source code directory.
 
