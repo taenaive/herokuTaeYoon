@@ -20,5 +20,13 @@
     sudo apt-get update
     sudo apt-get install nodejs
     </pre>
+    <h3> Java installation for Ubuntu 12.04 <h3>
+    <pre class="prettyprint">
+    sudo add-apt-repository ppa:webupd8team/java
+    sudo apt-get update && sudo apt-get install oracle-jdk7-installer
+    update-alternatives –display java
+    /** for JAVA_HOME=/usr/lib/jvm/java-7-oracle */
+    sudo gedit /etc/environment
+    </pre>
   </body>
 </html>
