@@ -3,17 +3,24 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style_t_home.css' />
     <script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sunburst"></script>
   </head>
   <body>
     <div class="container">
-        <h1><%= title %></h1>
-        <p>Welcome to Future <%= title %> Site</p>
-        <a href="/test4">Visit the Beta site</a>
-        <p>Macc2 development:</p>
-        <a href="https://obscure-tor-4138.herokuapp.com/">MACC2 prototype</a>
-        
-        <h2>commands of the day</h2>
+        <h1 class="taeH1size taeH1font"><%= title %></h1>
+        <p class ="taeFontCenter">Welcome to Future <%= title %> Site</p>
+        <br>
+
+        <div class ="taeFontCenter">
+
+            <a href="/test4">Visit the Beta site</a>
+            <p></p>
+            <p>Macc2 development:</p>
+            <a href="https://obscure-tor-4138.herokuapp.com/">MACC2 prototype</a>
+        </div>
+
+        <h3> <span class="glyphicon glyphicon-hand-right blue"></span> Commands of the day</h3>
         <pre class="prettyprint">
         sudo apt-get update
         sudo apt-get install git-core curl build-essential openssl libssl-dev
@@ -21,7 +28,8 @@
         sudo apt-get update
         sudo apt-get install nodejs
         </pre>
-        <h2> Java installation for Ubuntu 12.04 </h2>
+
+        <h3>  <span class="glyphicon glyphicon-hand-right blue"> </span> Java installation for Ubuntu 12.04 </h3>
         <pre class="prettyprint">
         sudo add-apt-repository ppa:webupd8team/java
         sudo apt-get update && sudo apt-get install oracle-jdk7-installer
@@ -29,7 +37,17 @@
         /** for JAVA_HOME=/usr/lib/jvm/java-7-oracle */
         sudo gedit /etc/environment
         </pre>
+
     </div>
+    <br>
+    <br>
+    <br>
+    <footer>
+      <div class="container taeFontCenter">
+        
+        <p><span>Contact information: <a href="mailto:tyoon2000@hotmail.com">tyoon2000@hotmail.com <span class="glyphicon glyphicon-send"></a>. </p>        
+      </div>
+    </footer>
     <!-- Bootstrap core CSS -->
     <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
     <script src="/bootstrap/js/bootstrap.min.js"></script>
